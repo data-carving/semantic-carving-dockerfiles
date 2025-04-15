@@ -1,6 +1,6 @@
 # Setup
 
-    Download POMD folder from flexfs
+Download POMD folder from flexfs
 
 # Build
 
