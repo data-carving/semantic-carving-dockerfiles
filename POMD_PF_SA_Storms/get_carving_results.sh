@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_FILE="/shared/results.txt"
+LOG_FILE="/shared/execution_results.txt"
 data_folder="/shared/POMD/"
 
 echo "Original Files" >> $LOG_FILE

@@ -1,0 +1,104 @@
+HDF5 SELECTIONS CARVING
+
+real	0m20.629s
+user	0m20.744s
+sys	0m1.029s
+Original Files
+239M	/shared/POMD/IMERG-PF/level2/202002.h5
+695M	/shared/POMD/GEOS5-PF/level2/202002.h5
+Carved Files
+3.1M	/shared/POMD/IMERG-PF/level2/202002.h5.carved
+8.1M	/shared/POMD/GEOS5-PF/level2/202002.h5.carved
+Percentage Reduction
+98.93%
+
+DASK CARVING
+NPARTITIONS 1
+
+real	0m53.692s
+user	0m50.178s
+sys	0m4.664s
+Original Files
+239M	/shared/POMD/IMERG-PF/level2/202002.h5
+695M	/shared/POMD/GEOS5-PF/level2/202002.h5
+Carved Files
+129M	/shared/POMD/IMERG-PF/level2/202002.h5.carved
+369M	/shared/POMD/GEOS5-PF/level2/202002.h5.carved
+Percentage Reduction
+49.34%
+
+DASK CARVING
+NPARTITIONS 10
+
+real	0m50.202s
+user	0m52.044s
+sys	0m3.203s
+Original Files
+239M	/shared/POMD/IMERG-PF/level2/202002.h5
+695M	/shared/POMD/GEOS5-PF/level2/202002.h5
+Carved Files
+129M	/shared/POMD/IMERG-PF/level2/202002.h5.carved
+369M	/shared/POMD/GEOS5-PF/level2/202002.h5.carved
+Percentage Reduction
+49.34%
+
+DASK CARVING
+NPARTITIONS 100
+
+real	0m51.951s
+user	0m52.279s
+sys	0m3.427s
+Original Files
+239M	/shared/POMD/IMERG-PF/level2/202002.h5
+695M	/shared/POMD/GEOS5-PF/level2/202002.h5
+Carved Files
+129M	/shared/POMD/IMERG-PF/level2/202002.h5.carved
+369M	/shared/POMD/GEOS5-PF/level2/202002.h5.carved
+Percentage Reduction
+49.34%
+
+DASK CARVING
+NPARTITIONS 1000
+
+real	1m19.065s
+user	1m14.295s
+sys	0m12.969s
+Original Files
+239M	/shared/POMD/IMERG-PF/level2/202002.h5
+695M	/shared/POMD/GEOS5-PF/level2/202002.h5
+Carved Files
+129M	/shared/POMD/IMERG-PF/level2/202002.h5.carved
+369M	/shared/POMD/GEOS5-PF/level2/202002.h5.carved
+Percentage Reduction
+49.34%
+
+DASK CARVING
+NPARTITIONS 10000
+
+real	5m4.258s
+user	4m24.295s
+sys	1m41.925s
+Original Files
+239M	/shared/POMD/IMERG-PF/level2/202002.h5
+695M	/shared/POMD/GEOS5-PF/level2/202002.h5
+Carved Files
+97M	/shared/POMD/IMERG-PF/level2/202002.h5.carved
+257M	/shared/POMD/GEOS5-PF/level2/202002.h5.carved
+Percentage Reduction
+63.87%
+
+DASK CARVING
+NPARTITIONS 100000
+
+real	27m41.506s
+user	26m31.265s
+sys	5m37.874s
+Original Files
+239M	/shared/POMD/IMERG-PF/level2/202002.h5
+695M	/shared/POMD/GEOS5-PF/level2/202002.h5
+Carved Files
+37M	/shared/POMD/IMERG-PF/level2/202002.h5.carved
+161M	/shared/POMD/GEOS5-PF/level2/202002.h5.carved
+Percentage Reduction
+79.62%
+

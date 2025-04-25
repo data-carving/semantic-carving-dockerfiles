@@ -1,0 +1,47 @@
+HDF5
+
+real	0m11.550s
+user	0m12.163s
+sys	0m0.917s
+
+DASK
+NPARTITIONS 1
+
+real	0m15.894s
+user	0m15.523s
+sys	0m1.820s
+
+DASK
+NPARTITIONS 10
+
+real	0m16.010s
+user	0m15.919s
+sys	0m1.875s
+
+DASK
+NPARTITIONS 100
+
+real	0m17.598s
+user	0m17.095s
+sys	0m2.240s
+
+DASK
+NPARTITIONS 1000
+
+real	0m24.156s
+user	0m23.194s
+sys	0m3.788s
+
+DASK
+NPARTITIONS 10000
+
+real	1m32.326s
+user	1m26.970s
+sys	0m18.110s
+
+DASK
+NPARTITIONS 100000
+
+real	7m30.898s
+user	7m7.551s
+sys	0m35.131s
