@@ -129,27 +129,33 @@ RUN git clone https://github.com/Unidata/netcdf-c.git && \
 
 # RUN apt-get install -y libhdf5-dev hdf5-helpers hdf5-tools
 
-RUN git clone -b experimental https://raffayatiq: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@github.com/data-carving/hdf5-selections-carving.git && \
+RUN git clone -b experimental https://raffayatiq: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@github.com/data-carving/hdf5-selections-carving.git && \
     cd hdf5-selections-carving && \
     HDF5_CFLAGS="-fPIC" /usr/local/hdf5/bin/h5cc -shlib -shared H5carve_helper_functions.c H5selections_carve.c -o h5carve.so
 
 RUN conda uninstall hdf5
 
 COPY interposed_dask_array.py /imergview/interposed_dask_array.py
-COPY pf_search_dask.py /imergview/pf_search_dask.py
+COPY pf_search_dask_original.py /imergview/pf_search_dask_original.py
+COPY pf_search_dask_execution.py /imergview/pf_search_dask_execution.py
+COPY pf_search_dask_re-execution.py /imergview/pf_search_dask_re-execution.py
 COPY pf_search_h5py.py /imergview/pf_search_h5py.py
-COPY run.sh /imergview/run.sh
+COPY pf_search_h5py_re-execution.py /imergview/pf_search_h5py_re-execution.py
+
+COPY original.sh /imergview/original.sh
+COPY execute.sh /imergview/execute.sh
+COPY re-execute.sh /imergview/re-execute.sh
 COPY get_carving_results.sh /imergview/get_carving_results.sh
 
 COPY dask_test.py /imergview/dask_test.py
 COPY selections_test.py /imergview/selections_test.py
 
-RUN chmod a+x /imergview/run.sh
+RUN chmod a+x /imergview/original.sh
+RUN chmod a+x /imergview/execute.sh
+RUN chmod a+x /imergview/re-execute.sh
 RUN chmod a+x /imergview/get_carving_results.sh
 
 WORKDIR /imergview
 
-
 # Run an interactive shell by default
 # CMD ["/bin/bash"]
-ENTRYPOINT ["./run.sh"]
