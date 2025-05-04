@@ -144,17 +144,11 @@ COPY pf_search_dask_re-execution.py /imergview/pf_search_dask_re-execution.py
 COPY pf_search_h5py.py /imergview/pf_search_h5py.py
 COPY pf_search_h5py_re-execution.py /imergview/pf_search_h5py_re-execution.py
 
-COPY original.sh /imergview/original.sh
-COPY execute.sh /imergview/execute.sh
-COPY re-execute.sh /imergview/re-execute.sh
 COPY get_carving_results_hdf5.sh /imergview/get_carving_results_hdf5.sh
 
 COPY dask_test.py /imergview/dask_test.py
 COPY selections_test.py /imergview/selections_test.py
 
-RUN chmod a+x /imergview/original.sh
-RUN chmod a+x /imergview/execute.sh
-RUN chmod a+x /imergview/re-execute.sh
 RUN chmod a+x /imergview/get_carving_results_hdf5.sh
 
 COPY run_hdf5.sh /imergview/run_hdf5.sh
