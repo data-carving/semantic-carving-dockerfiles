@@ -32,7 +32,7 @@ import cycler
 
 import sys
 import ast
-import dask.dataframe as dd
+import dask.array as da
 # STARE Imports
 # import pystare
 
@@ -1138,6 +1138,7 @@ def pf_search(flist: list[str], dt_str: list[str], dyamond_mask_file: str, use_c
         masked_pr_flag = np.zeros((ntimes, nlats, nlons), dtype=mask_dtype)
         print("\nMaking Mask... ")
         loop_src = flist if local_verbose else tqdm(flist, total=ntimes, desc=f"Reading NetCDF")
+
         for midx, mfile in enumerate(loop_src):
             if local_verbose:
                 print(f"{midx: 03d}: {mfile}")
@@ -1150,7 +1151,7 @@ def pf_search(flist: list[str], dt_str: list[str], dyamond_mask_file: str, use_c
             ##
             # Read PR Field
             #   (1, 1800, 3600) numpy.ma.core.MaskedArray numpy.float32
-            _pr = ds[()]
+            _pr = ds
             #   (1800, 3600)
 
             dask_array_chunkshape = ast.literal_eval(sys.argv[1])
@@ -1160,7 +1161,7 @@ def pf_search(flist: list[str], dt_str: list[str], dyamond_mask_file: str, use_c
             c.datapath = datapath
             dask_pr = c.compute()
 
-            da.output_carved(delete=True)
+            _pr = _pr[()]
 
             _pr = _pr.squeeze()
 
@@ -1471,9 +1472,10 @@ if __name__ == '__main__':
 
     ##
     # Get DYAMONDv2 files
-    base_data_path = ["/shared/POMD/discover/"][0]
+    chunkshape_input = sys.argv[1].strip("()").replace(" ", "").replace(",", "_")
+    base_data_path = [f'/shared/dask_chunks_{chunkshape_input}/POMD/discover/'][0]
     dir_list = ("202001", "202002")
-    hidden_path = ["/shared/POMD/output/"][0]
+    hidden_path = [f'/shared/dask_chunks_{chunkshape_input}/POMD/output/'][0]
 
     # Connectivity for CC3D: only 4, 8 (2D) and 26, 18 and 6 (3D)
     use_connectivity = 26

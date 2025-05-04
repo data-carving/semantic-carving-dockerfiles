@@ -35,7 +35,7 @@ RUN conda install -y -c conda-forge \
     cloudpickle>=3.1.0 && \
     conda clean -afy  # Clean up Conda cache to reduce image size
 
-RUN conda install -y -c conda-forge connected-components-3d
+# RUN conda install -y -c conda-forge connected-components-3d
 
 # Install additional packages to resolve libarchive.so.20 issue
 RUN conda install --solver=classic -y -c conda-forge \
@@ -91,6 +91,8 @@ ENV LD_PRELOAD_CARVE_COMMAND="../hdf5-selections-carving/h5carve.so /usr/local/h
 ENV NETCDF4=true
 ENV HDF5_VERSION=1.14.6
 
+RUN pip install connected-components-3d
+
 # Installing zlib library
 RUN wget https://www.zlib.net/zlib-1.3.1.tar.gz && \
     tar -xzvf zlib-1.3.1.tar.gz && \
@@ -145,7 +147,7 @@ COPY pf_search_h5py_re-execution.py /imergview/pf_search_h5py_re-execution.py
 COPY original.sh /imergview/original.sh
 COPY execute.sh /imergview/execute.sh
 COPY re-execute.sh /imergview/re-execute.sh
-COPY get_carving_results.sh /imergview/get_carving_results.sh
+COPY get_carving_results_hdf5.sh /imergview/get_carving_results_hdf5.sh
 
 COPY dask_test.py /imergview/dask_test.py
 COPY selections_test.py /imergview/selections_test.py
@@ -153,7 +155,26 @@ COPY selections_test.py /imergview/selections_test.py
 RUN chmod a+x /imergview/original.sh
 RUN chmod a+x /imergview/execute.sh
 RUN chmod a+x /imergview/re-execute.sh
-RUN chmod a+x /imergview/get_carving_results.sh
+RUN chmod a+x /imergview/get_carving_results_hdf5.sh
+
+COPY run_hdf5.sh /imergview/run_hdf5.sh
+RUN chmod a+x /imergview/run_hdf5.sh
+
+COPY run_dask.sh /imergview/run_dask.sh
+RUN chmod a+x /imergview/run_dask.sh
+
+COPY rechunk.sh /imergview/rechunk.sh
+RUN chmod a+x /imergview/rechunk.sh
+
+RUN apt-get update && apt-get install -y libhdf5-dev hdf5-helpers hdf5-tools
+
+COPY get_carving_results_dask.sh /imergview/get_carving_results_dask.sh
+RUN chmod a+x /imergview/get_carving_results_dask.sh
+
+COPY run.sh /imergview/run.sh
+RUN chmod a+x /imergview/run.sh
+
+COPY check_npy_files.py /imergview/check_npy_files.py
 
 WORKDIR /imergview
 

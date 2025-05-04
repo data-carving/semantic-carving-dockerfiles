@@ -56,7 +56,7 @@ def from_array(*args, **kwargs):
 
 	return darr
 
-original_compute = core.Array.compute
+original_compute = da.core.Array.compute
 def interposed_compute(*args, **kwargs):
 	global_array = darr_dict[args[0].datapath]['global_array']
 	global_blocks = global_array.blocks
@@ -66,7 +66,7 @@ def interposed_compute(*args, **kwargs):
 	return_val = original_compute(*args, **kwargs)
 
 	return return_val
-core.Array.compute = interposed_compute
+da.core.Array.compute = interposed_compute
 
 
 def output_carved(delete=False):

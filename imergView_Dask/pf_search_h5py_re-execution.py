@@ -1142,7 +1142,7 @@ def pf_search(flist: list[str], dt_str: list[str], dyamond_mask_file: str, use_c
             ##
             # Open a file
             # ds = netCDF4.Dataset(mfile)
-            ds = h5py.File(mfile + '.carved', 'r')["PRECTOT"]
+            ds = h5py.File(mfile, 'r')["PRECTOT"]
 
             ##
             # Read PR Field
@@ -1499,6 +1499,7 @@ if __name__ == '__main__':
     dtime_str = []
     dtime_dt = []
     for afile in file_list:
+        afile = afile.replace(".carved", "")
         tmp_ = afile.split("/")[-1]
         tmpa_ = tmp_.split(".")[-2]
         tmpb_ = tmpa_.split("_")
