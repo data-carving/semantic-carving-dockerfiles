@@ -86,9 +86,6 @@ COPY ./featureDB_make_labels_h5py_re-execution.py ./featureDB_make_labels_h5py_r
 COPY ./featureDB_make_labels_dask_original.py ./featureDB_make_labels_dask_original.py
 COPY ./featureDB_make_labels_dask_execution.py ./featureDB_make_labels_dask_execution.py
 COPY ./featureDB_make_labels_dask_re-execution.py ./featureDB_make_labels_dask_re-execution.py
-COPY ./featureDB_make_df.py ./featureDB_make_df.py
-COPY ./featureDB_make_df_h5py.py ./featureDB_make_df_h5py.py
-COPY ./featureDB_make_df_h5py_re-execution.py ./featureDB_make_df_h5py_re-execution.py
 
 COPY ./interposed_dask_array.py ./interposed_dask_array.py
 
@@ -98,15 +95,9 @@ RUN pip3 install geopandas==0.14.4
 RUN apt-get update && \
 	apt-get install nano
 
-COPY original.sh original.sh
-COPY execute.sh execute.sh
-COPY re-execute.sh re-execute.sh
 COPY get_carving_results_hdf5.sh get_carving_results_hdf5.sh
 COPY get_carving_results_dask.sh get_carving_results_dask.sh
 
-RUN chmod a+x original.sh
-RUN chmod a+x execute.sh
-RUN chmod a+x re-execute.sh
 RUN chmod a+x get_carving_results_hdf5.sh
 RUN chmod a+x get_carving_results_dask.sh
 
