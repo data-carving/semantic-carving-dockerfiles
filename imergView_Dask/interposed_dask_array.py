@@ -1,3 +1,7 @@
+# Copyright (c) 2025 SRI International All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
 from dask.array import * # makes all functions and classes in dask.dataframe available in interposed_dask_dataframe
 import time
 import pandas
