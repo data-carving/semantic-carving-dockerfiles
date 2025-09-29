@@ -1,3 +1,7 @@
+# Copyright (c) 2025 SRI International All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
 #!/bin/bash
 
 LOG_FILE="/shared/re-execution_results.txt"
